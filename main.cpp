@@ -4,6 +4,7 @@
 #include<vector>
 
 using namespace std;
+
 struct Owner{
 	string name;
 	string address;
@@ -243,10 +244,10 @@ int main(){
     
     cout << "Enter one of the queries:" << endl << endl;
     cout << "1. Create the Genesis Node." << endl;
-	cout << "2. Create set of child nodes of a particular node." << endl;
+    cout << "2. Create set of child nodes of a particular node." << endl;
     cout << "3. Create a child node that originates from a particular node"<< endl;
     cout << "4. Verify the owner of the node." << endl;
-	cout << "5. Edit value of a node" << endl;
+    cout << "5. Edit value of a node" << endl;
     cout << "6. Transfer ownership of a particular node value." << endl;
 	cout << "7. Find the longest chain of the genesis node." << endl;
    	cout << "8. Find the longest chain of any node." << endl;
