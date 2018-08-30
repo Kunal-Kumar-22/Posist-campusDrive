@@ -125,39 +125,10 @@ void query5(vector<Owner*> &owners, Owner *currOwner, vector<Node*> &v){
 	}
 }
 void query6(vector<Owner*> &owners,Owner *currOwner, vector<Node*> &v){
-	cout<<"Enter nodeId and userId: "<<endl;
-	int id,userId;
-	cin>>id>>userId;
-	bool f=false;
-	for(int i=0;i<v.size();i++){
-		if(v[i]->nodeId==id){
-			if(query4(owners,currOwner,v)){
-				
-				
-				Node *np=v[i];
-				for(int k=0;k<owners.size();k++){
-					if(owners[k]->ownerNum==userId){
-						np->owner=owners[k];
-						f=true;
-						break;
-					}	
-				}
-				
-			}else{
-				cout<<"you are not the owner of this node"<<endl;
-				return;
-			}
-			break;
-		}
-	}
-	if(f){
-		cout<<"node Owner changed"<<endl;
-	}else{
-		cout<<"node not found"<<endl;
-	}
+	//todo
 }
 void query7(vector<Node*> v){
-	
+	//todo
 }
 void dfs(Node *root,int &n,int num){
 	if(root==NULL){
