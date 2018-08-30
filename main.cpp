@@ -92,37 +92,7 @@ bool query4(vector<Owner*> &owners,Owner *currOwner,vector<Node*> &v){
 			return f;
 }
 void query5(vector<Owner*> &owners, Owner *currOwner, vector<Node*> &v){
-	cout<<"Enter nodeId of node to be deleted: "<<endl;
-	int id;
-	cin>>id;
-	bool f=false;
-	for(int i=0;i<v.size();i++){
-		if(v[i]->nodeId==id){
-			if(query4(owners,currOwner,v)){
-				
-				f=true;
-				Node *parent=v[i]->refNodeId;
-				vector<Node*> child=parent->refChildNodeId;
-				for(int k=0;k<child.size();k++){
-					if(child[k]->nodeId==id){
-						child.erase(child.begin()+i);
-						
-						break;
-					}
-				}
-				
-			}else{
-				cout<<"you are not the owner of this node"<<endl;
-				return;
-			}
-			break;
-		}
-	}
-	if(f){
-		cout<<"node removed"<<endl;
-	}else{
-		cout<<"not found"<<endl;
-	}
+	//todo
 }
 void query6(vector<Owner*> &owners,Owner *currOwner, vector<Node*> &v){
 	//todo
@@ -143,29 +113,7 @@ void dfs(Node *root,int &n,int num){
 }
 void mergeSet(vector<Node*> &first, vector<Node*> &second,Owner *currOwner){
 	//merge sets of same owner
-	int i=0,j=0;
-	while(i<first.size() && j<second.size()){
-		while(i<first.size() && first[i]->owner!=currOwner){
-			i++;
-		}
-		while(j<second.size() && second[j]->owner!=currOwner){
-			j++;
-		}
-		int n1=-1,n2=-1;
-		dfs(second[j],n2,0);
-		dfs(first[i],n1,0);
-		if(n1>n2){
-			second[j]->refNodeId=first[i];
-			first[i]->refChildNodeId.push_back(second[j]);
-			second.erase(second.begin()+j);
-			i++;
-		}else{
-			first[i]->refNodeId=second[j];
-			second[j]->refChildNodeId.push_back(first[i]);
-			second.erase(second.begin()+j);
-			j++;
-		}
-	}
+	
 	
 }
 int main(){
@@ -292,18 +240,7 @@ int main(){
 			cin>>id;
 			int ans=-1;
 			bool f=false;
-			for(int i=0;i<set.size();i++){
-				for(int j=0;j<set[i].size();j++){
-					if(set[i][j]->nodeId==id){
-						f=true;
-						dfs(set[i][j],ans,0);
-						break;
-					}
-				}
-				if(f){
-					break;	
-				}
-			}
+			
 		}else if(q==9){
 			//merge nodes
 			cout<<"enter 1st and 2nd set number: "<<endl;
